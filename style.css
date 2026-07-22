@@ -387,45 +387,87 @@ h3 {
 ========================== */
 
 @media (max-width: 768px) {
-/* Mobile Navbar */
-  .navbar{
+  /* General */
+  body {
+    padding: 0;
+  }
+
+  section {
+    padding: 60px 20px;
+  }
+
+  /* Navbar */
+  .navbar {
     padding: 15px 20px;
-  }
-
-  .logo{
-    font-size: 2rem;
-  }
-
-  .nav-links{
+    flex-direction: column;
+    align-items: center;
     gap: 15px;
   }
 
-  .nav-links a{
-    font-size: 0.9rem;
+  .logo {
+    font-size: 2rem;
   }
-  body {
-    padding: 20px;
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 140px;
   }
 
   .hero h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
+    line-height: 1.2;
   }
 
   .hero h2 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 
-  .project-card {
-    width: 100%;
+  .hero p {
+    font-size: 1rem;
   }
 
+  /* Hero Buttons */
   .hero-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
 
   .hero-btn {
     width: 220px;
     justify-content: center;
+  }
+
+  /* Tags */
+  .tech-stack {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  /* Project Cards */
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  /* Section Titles */
+  section h3 {
+    font-size: 2rem;
   }
 }
