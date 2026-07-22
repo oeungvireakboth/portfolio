@@ -387,6 +387,22 @@ h3 {
 ========================== */
 
 @media (max-width: 768px) {
+/* Mobile Navbar */
+  .navbar{
+    padding: 15px 20px;
+  }
+
+  .logo{
+    font-size: 2rem;
+  }
+
+  .nav-links{
+    gap: 15px;
+  }
+
+  .nav-links a{
+    font-size: 0.9rem;
+  }
   body {
     padding: 20px;
   }
