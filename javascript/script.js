@@ -36,30 +36,38 @@ if (menuToggle && navLinks) {
 // ==========================
 
 const form = document.getElementById("contactForm");
-const successMessage = document.getElementById("successMessage");
 
 if (form) {
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const button = form.querySelector("button");
+    const originalText = button.innerHTML;
 
-    if (!name || !email || !subject || !message) {
-      successMessage.textContent = "Please fill in all fields.";
-      return;
+    button.disabled = true;
+    button.innerHTML = "Sending...";
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("✅ Message sent successfully!");
+        form.reset();
+      } else {
+        alert("❌ Something went wrong.");
+      }
+    } catch (error) {
+      alert("❌ Failed to send message.");
     }
 
-    successMessage.textContent = "Message sent successfully!";
-    form.reset();
+    button.disabled = false;
+    button.innerHTML = originalText;
   });
-}
-// ----------------------------------------------------------
-// FOOTER YEAR
-// Small touch so the copyright year never needs manual updating.
-// ---------------------------------------------------------- */
-function initFooterYear() {
-  document.getElementById("year").textContent = new Date().getFullYear();
 }
