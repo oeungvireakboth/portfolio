@@ -32,3 +32,4 @@ https://oeungvireakboth.github.io/portfolio/
 
 - LinkedIn: [https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/vireakboth-oeung-6b6a75384/)
 - GitHub: https://github.com/oeungvireakboth
+- Email: oeung.vireakboth@gmail.com
