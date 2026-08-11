@@ -30,3 +30,67 @@ if (menuToggle && navLinks) {
     });
   });
 }
+
+// ==========================
+// Page Loading Animation
+// ==========================
+
+const pageLoader = document.getElementById("page-loader");
+const loaderProgress = document.getElementById("loader-progress");
+const loaderPercentage = document.getElementById("loader-percentage");
+const loaderStatus = document.getElementById("loader-status");
+
+if (pageLoader) {
+  const loadingSteps = [
+    {
+      progress: 20,
+      text: "INITIALIZING...",
+    },
+    {
+      progress: 40,
+      text: "LOADING SECURITY MODULE...",
+    },
+    {
+      progress: 60,
+      text: "CONNECTING CLOUD SERVICES...",
+    },
+    {
+      progress: 80,
+      text: "CHECKING SYSTEM STATUS...",
+    },
+    {
+      progress: 100,
+      text: "SYSTEM READY",
+    },
+  ];
+
+  let stepIndex = 0;
+
+  function runLoader() {
+    const step = loadingSteps[stepIndex];
+
+    loaderProgress.style.width = `${step.progress}%`;
+    loaderPercentage.textContent = `${step.progress}%`;
+    loaderStatus.textContent = step.text;
+
+    stepIndex++;
+
+    if (stepIndex < loadingSteps.length) {
+      setTimeout(runLoader, 300);
+    } else {
+      setTimeout(() => {
+        pageLoader.classList.add("loader-hidden");
+
+        // Tell the hero animations that loading is finished
+        window.dispatchEvent(new Event("portfolioReady"));
+
+        setTimeout(() => {
+          pageLoader.remove();
+        }, 800);
+      }, 500);
+    }
+  }
+
+  // Small delay so the loader is actually visible
+  setTimeout(runLoader, 300);
+}

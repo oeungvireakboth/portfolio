@@ -132,9 +132,10 @@ h3 {
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: #c7d0d2;
   margin: 25px auto;
+  margin-top: 0px;
 }
 .hero-tags {
   display: flex;
@@ -448,8 +449,8 @@ Hero V2
 .hero-subtitle {
   color: #b8c0c2;
 
-  font-size: 1.4rem;
-
+  font-size: 1.5rem;
+  margin-bottom: 30px;
   font-weight: 500;
 }
 
@@ -562,9 +563,14 @@ Hero V2
   width: 80%;
 }
 
+.w70 {
+  animation-delay: 0.8s;
+  width: 70%;
+}
+
 .w75 {
   animation-delay: 0.6s;
-  width: 75%;
+  width: 90%;
 }
 
 .w100 {
@@ -646,7 +652,7 @@ Hero V2
 
   border-radius: 999px;
 
-  animation: grow 1.8s ease forwards;
+  animation: grow 4.5s ease forwards;
 }
 .w100 {
   animation-delay: 0.8s;
@@ -828,6 +834,14 @@ footer {
 
     justify-content: center;
   }
+  .hero .skills-card {
+    transform: translateY(30px);
+  }
+
+  .hero.hero-loaded .skills-card {
+    transform: translateY(0);
+  }
+
   /* -------------------
        Projects
     --------------------*/
@@ -881,4 +895,162 @@ footer {
   100% {
     opacity: 0;
   }
+}
+
+/* ==========================
+   Page Loading Screen
+========================== */
+
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #081315;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease;
+}
+
+#page-loader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  width: min(420px, 80%);
+  text-align: center;
+}
+
+.loader-logo {
+  color: #e25d36;
+
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  margin-bottom: 35px;
+}
+
+.loader-status {
+  color: #d9e1e2;
+
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+
+  margin-bottom: 15px;
+
+  min-height: 20px;
+}
+
+.loader-bar {
+  width: 100%;
+  height: 5px;
+
+  background: #243236;
+
+  border-radius: 999px;
+
+  overflow: hidden;
+}
+
+.loader-progress {
+  width: 0%;
+  height: 100%;
+
+  background: #e25d36;
+
+  border-radius: 999px;
+
+  transition: width 0.15s ease;
+}
+
+.loader-percentage {
+  margin-top: 12px;
+
+  color: #91a5aa;
+
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* ==========================
+   Hero Entrance Animation
+========================== */
+
+.hero .status-badge,
+.hero .hero-title,
+.hero .hero-subtitle,
+.hero .hero-description,
+.hero .hero-buttons,
+.hero .skills-card {
+  transform: translateX(50px);
+}
+
+/* Status */
+.hero.hero-loaded .status-badge {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* Name */
+.hero.hero-loaded .hero-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: 0.3s;
+}
+
+/* Subtitle */
+.hero.hero-loaded .hero-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: 0.3s;
+}
+
+/* Description */
+.hero.hero-loaded .hero-description {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: 0.3s;
+}
+
+/* Buttons */
+.hero.hero-loaded .hero-buttons {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: 0.4s;
+}
+
+/* Skills card */
+.hero.hero-loaded .skills-card {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  transition-delay: 0.3s;
 }
