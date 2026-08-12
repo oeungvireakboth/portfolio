@@ -393,7 +393,7 @@ Hero V2
 .hero-left {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 0px;
 }
 
 .status-badge {
@@ -573,9 +573,9 @@ Hero V2
   width: 90%;
 }
 
-.w100 {
+.w80 {
   animation-delay: 0.8s;
-  width: 100%;
+  width: 80%;
 }
 
 @keyframes grow {
@@ -654,9 +654,9 @@ Hero V2
 
   animation: grow 4.5s ease forwards;
 }
-.w100 {
+.w80 {
   animation-delay: 0.8s;
-  width: 100%;
+  width: 80%;
 }
 
 .w90 {
